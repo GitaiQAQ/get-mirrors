@@ -9,6 +9,19 @@ $ cd get-mirrors
 $ ./install.sh
 ```
 
+## In Dockerfile
+
+```
+...
+
+RUN curl -Ls -o get-mirrors.tar.gz `curl "https://api.github.com/repos/GitaiQAQ/get-mirrors/releases/latest" | grep "tarball_url" | cut -d "\"" -f 4` \
+        && tar -xzf get-mirrors.tar.gz \
+        && cd GitaiQAQ-get-mirrors-* \
+        && bash ./install.sh
+
+...
+```
+
 # For Advanced Package Tool(apt)
 
 Mirrors:

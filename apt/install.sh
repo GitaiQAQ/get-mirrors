@@ -21,8 +21,8 @@ do_install() {
 	fi
 
 	if [ -f $sourcesfile ];then 
-		if [ ! -f /etc/apt/sources.list ];then 
-			mkdir -p /etc/apt/sources.list
+		if [ ! -f /etc/apt ];then 
+			mkdir -p /etc/apt
 		fi
 		cp $sourcesfile /etc/apt/sources.list
 	fi

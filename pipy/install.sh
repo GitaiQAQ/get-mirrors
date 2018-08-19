@@ -19,8 +19,8 @@ do_install() {
 	fi
 
 	if [ -f $sourcesfile ];then 
-		if [ ! -f ~/.pip/pip.conf ];then 
-			mkdir -p ~/.pip/pip.conf
+		if [ ! -f ~/.pip ];then 
+			mkdir -p ~/.pip
 		fi
 		cp $sourcesfile ~/.pip/pip.conf
 	fi

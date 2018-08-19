@@ -15,15 +15,15 @@ set -e
 SCRIPT_COMMIT_SHA=UNKNOWN
 
 host_sort(){
-	if command_exists ping; then
     	echo $1 | while read x ; do echo `ping -c 3 $x | grep loss | awk '{print $10,x}' x=$x` & done | sort -n -k2
-    else
-    	echo $1
-    fi
 }
 
 best_host(){
-	host_sort $1 | awk '{print $2}' | head -n 1
+	if command_exists pinfg; then
+		host_sort $1 | awk '{print $2}' | head -n 1
+	else
+		echo $1 | head -n 1
+	fi
 }
 
 get_machine() {
